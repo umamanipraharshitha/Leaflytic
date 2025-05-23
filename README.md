@@ -40,7 +40,7 @@
 4. **Run the Application**
 
    ```bash
-   python app.py
+   python leaflytic.py
    ```
 
 5. **Open in Browser**
