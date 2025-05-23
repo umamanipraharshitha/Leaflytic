@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - LeafLens</title>
+ <style>
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  font-family: 'Arial', sans-serif;
+  background-color: #ffffff;
+  color: #1D3D17;
+}
+
+/* Navigation Bar (Static Header Style) */
+header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #ccc;
+  padding: 12px 20px;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.navbar ul li {
+  margin-left: 25px;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: #1D3D17;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 8px;
+  transition: color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+  color: #555;
+}
+
+.navbar ul li a.active {
+  color: #555;
+}
+
+/* Contact Section with Background */
+.contact-section {
+  background-image: url('background-image.jpg'); /* Replace with actual image */
+  background-size: cover;
+  background-position: center;
+  padding: 80px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Contact Container (Card) */
+.contact-container {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(5px);
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 1100px;
+  width: 100%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+/* Responsive Stack on Small Screens */
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+  }
+}
+
+/* Contact Info Section */
+.contact-info {
+  flex: 1;
+}
+
+.contact-info h1 {
+  margin-bottom: 10px;
+}
+
+.contact-info p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.contact-cards {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.card {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex: 1;
+}
+
+.card img {
+  width: 50px;
+  margin-bottom: 10px;
+}
+
+.card h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.card button {
+  background-color: #1D3D17;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.card button:hover {
+  background-color: #555;
+}
+
+/* Feedback Form Section */
+.feedback-form {
+  flex: 1;
+}
+
+.feedback-form h2 {
+  margin-bottom: 10px;
+}
+
+.feedback-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.feedback-form input,
+.feedback-form textarea {
+  margin-bottom: 12px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.feedback-form button {
+  background-color: #1D3D17;
+  color: #ffffff;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.feedback-form button:hover {
+  background-color: #555;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #ffffff;
+  border-top: 1px solid #ccc;
+  margin-top: 40px;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  flex-wrap: wrap;
+}
+
+.navbar-brand .logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: rgb(31, 75, 35);
+  text-decoration: none;
+}
+
+.logo-img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+
+  </style>
+</head>
+<body>
+ 
+     <header>
+    <nav class="navbar">
+      <div class="navbar-brand">
+    <a href="/" class="logo">
+      <img src="/static/img/logo.png" alt="Leaflytic Logo" class="logo-img" />
+      Leaflytic
+    </a>
+  </div>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        
+        <li><a href="/search">Search</a></li>
+        <li><a href="/contact">Contact</a></li>
+        
+        
+      </ul>
+    </nav>
+  </header>
+
+
+
+
+  <main class="contact-section">
+    <div class="contact-container">
+      <div class="contact-info">
+        <h1>Contact us</h1>
+        <p>Reach out to us for any queries, feedback, or support.</p>
+        <div class="contact-cards">
+          <div class="card">
+            <img src="static\img\email.png" alt="Email Icon">
+            <h2>Drop us a mail</h2>
+            <button id="email-btn"> Email us </button>
+          </div>
+          <div class="card">
+            <img src="static\img\message.png" alt="Chat Icon">
+            <h2>Start a conversation</h2>
+            <button id="chat-btn"> Chat with us </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="feedback-form">
+        <h2>Feedback Form</h2>
+        <form action="#" method="post" id="feedback-form">
+          <input type="text" placeholder="Enter your name" required>
+          <textarea placeholder="Enter your feedback here" required></textarea>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 LeafLens. All rights reserved.</p>
+  </footer>
+
+<script>
+// Email Button Functionality
+document.getElementById('email-btn').addEventListener('click', function() {
+    window.location.href = 'mailto:umamanipraharshitha@gmail.com';
+});
+
+// Chat Button Functionality
+document.getElementById('chat-btn').addEventListener('click', function() {
+    window.location.href = 'sms:8374675522';
+});
+
+// Feedback Form Submission
+document.getElementById('feedback-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.querySelector('#feedback-form input').value;
+    const feedback = document.querySelector('#feedback-form textarea').value;
+    const mailtoLink = `mailto:umamanipraharshitha@gmail.com?subject=Feedback from ${name}&body=${feedback}`;
+    window.location.href = mailtoLink;
+});
+</script>
+</body>
+</html>

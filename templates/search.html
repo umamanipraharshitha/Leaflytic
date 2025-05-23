@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LeafLens - Upload</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #121212;
+      color: white;
+      line-height: 1.6;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: white;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar ul {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      list-style: none;
+      padding: 20px 30px;
+      flex-wrap: wrap;
+    }
+
+    .navbar ul li {
+      margin: 8px 15px;
+    }
+
+    .navbar ul li a {
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: bold;
+      color: rgb(31, 75, 35);
+      transition: color 0.3s ease;
+    }
+
+    .navbar ul li a:hover {
+      color: #7cd17c;
+    }
+
+    main {
+      padding-top: 100px; /* For fixed navbar */
+    }
+
+    .upload-container {
+      min-height: calc(100vh - 140px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-image: url('https://media.istockphoto.com/id/1410766826/photo/full-frame-of-green-leaves-pattern-background.webp?b=1&s=612x612&w=0&k=20&c=LGngoLNpLG2gl_0uUNIKfNpVMzr61qBew8oRvVUMnCQ=');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .upload-container::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+
+    .upload-container h1,
+    .upload-container p {
+      position: relative;
+      z-index: 1;
+    }
+
+    .upload-container h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .upload-container p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto 20px;
+    }
+
+    .upload-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      z-index: 1;
+    }
+
+    .upload-buttons button {
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: bold;
+      background-color: #fff;
+      color: rgb(31, 75, 35);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 200px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .upload-buttons button:hover {
+      background-color: #7cd17c;
+      color: white;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    footer {
+      background-color: #ffffff;
+      color: #666;
+      text-align: center;
+      padding: 15px 0;
+      font-size: 0.9rem;
+    }
+
+    @media (min-width: 768px) {
+      .upload-container h1 {
+        font-size: 2.5rem;
+      }
+
+      .upload-container p {
+        font-size: 1.2rem;
+      }
+
+      .upload-buttons {
+        flex-direction: row;
+        justify-content: center;
+      }
+
+      .upload-buttons button {
+        width: auto;
+        margin: 0 10px;
+      }
+    }
+    .upload-buttons {
+  z-index: 2; /* or higher than 1 */
+  position: relative; /* needed for z-index to work */
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  flex-wrap: wrap;
+}
+
+.navbar-brand .logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: rgb(31, 75, 35);
+  text-decoration: none;
+}
+
+.logo-img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+  </style>
+</head>
+<body>
+
+ <header>
+    <nav class="navbar">
+      <div class="navbar-brand">
+    <a href="/" class="logo">
+      <img src="/static/img/logo.png" alt="Leaflytic Logo" class="logo-img" />
+      Leaflytic
+    </a>
+  </div>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        
+        <li><a href="/search">Search</a></li>
+        <li><a href="/contact">Contact</a></li>
+        
+        
+      </ul>
+    </nav>
+  </header>
+
+
+  <main>
+    <div class="upload-container">
+      <h1>Upload a Leaf Pic – Let's Check It Out!</h1>
+      <p>Upload a picture of your plant leaf to uncover its health status instantly.</p>
+     <form id="upload-form" action="{{ url_for('predict') }}" method="post" enctype="multipart/form-data">
+  <div class="upload-buttons">
+    <input type="file" id="file-input" name="leaf_image" accept="image/*" style="display: none;" />
+    
+    <button type="button" id="upload-btn">Upload</button>
+    <button type="button" id="camera-btn">Camera</button>
+  </div>
+</form>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 LeafLens. All rights reserved.</p>
+  </footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const fileInput = document.getElementById('file-input');
+    const uploadBtn = document.getElementById('upload-btn');
+    const cameraBtn = document.getElementById('camera-btn');
+    const form = document.getElementById('upload-form');
+
+    if (!fileInput || !uploadBtn || !cameraBtn || !form) {
+      console.error('One or more elements are missing.');
+      return;
+    }
+
+    uploadBtn.addEventListener('click', function () {
+      fileInput.removeAttribute('capture');
+      fileInput.click();
+    });
+
+    cameraBtn.addEventListener('click', function () {
+      fileInput.setAttribute('capture', 'environment');
+      fileInput.click();
+    });
+
+    fileInput.addEventListener('change', function () {
+      if (fileInput.files.length > 0) {
+        form.submit();
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

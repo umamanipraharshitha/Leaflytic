@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LeafLens</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      color: #3E5D44;
+    }
+
+    /* Fixed Navbar */
+    header {
+      width: 100%;
+      background-color: #ffffff;
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: flex-end;
+      padding: 20px 40px;
+    }
+
+    .navbar ul {
+      display: flex;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .navbar ul li {
+      margin: 0 15px;
+    }
+
+    .navbar ul li a {
+      color: rgb(31, 75, 35);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1em;
+      transition: color 0.3s ease;
+    }
+
+    .navbar ul li a:hover {
+      color: #7cd17c;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 140px 80px 60px; /* account for fixed nav */
+      gap: 40px;
+    }
+
+    .hero-content {
+      max-width: 50%;
+    }
+
+    .hero-content h1 {
+      font-size: 42px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #2E4735;
+    }
+
+    .hero-content p {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    .btn-try-it {
+      background-color: #3E5D44;
+      color: #ffffff;
+      padding: 14px 28px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-try-it:hover {
+      background-color: #2E4735;
+    }
+
+    .hero-image img {
+      width: 500px;
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #888;
+      background-color: #ffffff;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .hero-section {
+        flex-direction: column;
+        padding: 120px 20px 40px;
+        text-align: center;
+      }
+
+      .hero-content {
+        max-width: 100%;
+      }
+    }
+  .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  flex-wrap: wrap;
+}
+
+.navbar-brand .logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: rgb(31, 75, 35);
+  text-decoration: none;
+}
+
+.logo-img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+  
+  </style>
+</head>
+<body>
+
+ <header>
+    <nav class="navbar">
+        <div class="navbar-brand">
+    <a href="/" class="logo">
+      <img src="static\img\logo.png" alt="Leaflytic Logo" class="logo-img" />
+      Leaflytic
+    </a>
+  </div>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        
+        <li><a href="/search">Search</a></li>
+        <li><a href="/contact">Contact</a></li>
+        
+        
+      </ul>
+    </nav>
+  </header>
+
+
+  <main class="hero-section">
+    <div class="hero-content">
+      <h1>Your Partner in Cultivating Healthy Plants.</h1>
+      <p>Nurturing growth with innovation and care.</p>
+      <a href="{{ url_for('leaflens') }}">
+        <button class="btn-try-it">Try it</button>
+      </a>
+    </div>
+    <div class="hero-image">
+      <img src="static\img\ime.png" alt="Healthy Plant">
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 LeafLens. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

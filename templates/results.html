@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LeafLens - Results</title>
+  <style>
+    /* Reset */
+  /* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ffffff;
+  color: #222;
+  min-height: 100vh;
+  padding-top: 70px; /* for navbar */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Navbar */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: white;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+  padding: 20px 30px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.navbar ul li {
+  margin: 0 15px;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgb(31, 75, 35);
+  transition: color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+  color: #fbfffb;
+  border-color: green;
+}
+
+/* Main content */
+main {
+  flex-grow: 1;
+  width: 100%;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+/* Container for image + result card */
+.result-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Image wrapper */
+.image-wrapper {
+  flex: 1 1 45%;
+  max-width: 45%;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Result card */
+.result-card {
+  flex: 1 1 45%;
+  max-width: 45%;
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  padding: 35px 40px;
+  color: #222;
+  font-size: 1.6rem;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.result-card p {
+  margin: 18px 0;
+  font-weight: 600;
+}
+
+.result-card p strong {
+  color: rgb(31, 75, 35);
+  font-weight: 700;
+}
+
+/* Button style */
+.btn-try-again {
+  background-color: rgb(31, 75, 35);
+  color: white;
+  font-weight: 700;
+  font-size: 1.2rem;
+  padding: 14px 40px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  user-select: none;
+}
+
+.btn-try-again:hover {
+  background-color: #ffffff;
+  color: #124014;
+}
+
+/* Footer */
+footer {
+  background: #f0f0f0;
+  color: #555;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 0.9rem;
+  width: 100%;
+  margin-top: auto;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  .result-container {
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px 10px;
+  }
+
+  .image-wrapper,
+  .result-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .result-card {
+    font-size: 1.4rem;
+    padding: 30px 20px;
+  }
+
+  .btn-try-again {
+    font-size: 1.1rem;
+    padding: 12px 36px;
+  }
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  flex-wrap: wrap;
+}
+
+.navbar-brand .logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: rgb(31, 75, 35);
+  text-decoration: none;
+}
+
+.logo-img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+      <div class="navbar-brand">
+    <a href="/" class="logo">
+      <img src="/static/images/leaf-logo.png" alt="Leaflytic Logo" class="logo-img" />
+      Leaflytic
+    </a>
+  </div>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        
+        <li><a href="/search">Search</a></li>
+        <li><a href="/contact">Contact</a></li>
+        
+        
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+  <div class="result-container">
+    <div class="image-wrapper">
+      <img src="{{ uploaded_image_url }}" alt="Uploaded leaf" />
+    </div>
+    <div class="result-card">
+      <p><strong>Diagnosis:</strong> {{ prediction }}</p>
+      <p><strong>Confidence:</strong> {{ confidence }}%</p>
+      <a href="{{ url_for('leaflens') }}" class="btn-try-again">Try Another Image</a>
+    </div>
+  </div>
+</main>
+
+
+  <footer>
+    <p>© 2025 LeafLens. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

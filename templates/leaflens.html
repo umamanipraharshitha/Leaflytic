@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Horizontal centering */
+    align-items: center;    /* Vertical centering */
+    height: 100vh;          /* Full viewport height */
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    color: #3E5D44;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input {
+    width: 663px; /* Set width to 663px */
+    height: 57px; /* Set height to 57px */
+    padding: 0 10px; /* Padding for better spacing */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 18px; /* Ensure text is readable */
+}
+
+.btn-login {
+    background-color: #3E5D44;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-login:hover {
+    background-color: #3E5D44; /* No hover effect */
+}
+
+.btn-google {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: white;
+    color: #555;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.google-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.or {
+    font-size: 14px;
+    color: #888;
+    margin: 10px 0;
+}
+
+.signup-text {
+    font-size: 14px;
+    color: #555;
+}
+
+.signup-text a {
+    color: #3E5D44;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.signup-text a:hover {
+    text-decoration: none;
+}
+
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sign In</h1>
+        <form>
+            <input type="email" placeholder="Enter Email Address" required>
+            <input type="password" placeholder="Enter Password" required>
+            <button type="submit" class="btn-login">Log In</button>
+            <p class="or">or</p>
+            <button type="button" class="btn-google" onclick="location.href='{{ url_for('login') }}'">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRySLCI_ES1btciGjehyRDx7C3-yhGC48XuRw&s" alt="Google Logo" class="google-icon">
+                Sign in with Google
+            </button>
+            
+        </form>
+        <p class="signup-text">Don't have an account? <a href="{{ url_for('completesignup') }}">Sign Up</a></p>
+
+    </div>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="app.js"></script>
+</body>
+</html>
