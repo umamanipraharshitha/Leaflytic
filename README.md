@@ -49,6 +49,47 @@
 
 ---
 
+
+### 🧠 ML Model Details – *Leaflytic*
+
+🔍 **Goal**: Classify plant leaf images into different disease categories or as healthy.
+
+📦 **Dataset**: [PlantVillage Dataset](https://www.kaggle.com/datasets/emmarex/plantdisease)
+
+* Pre-split into `train`, `val`, and `test` folders.
+* Contains thousands of images across multiple plant disease classes.
+
+⚙️ **Model Architecture**:
+
+* **Base**: [MobileNetV2](https://arxiv.org/abs/1801.04381) (pre-trained on ImageNet)
+
+  * Used for transfer learning (lightweight, fast, and accurate)
+  * Frozen convolutional base to retain learned features
+* **Top layers**:
+
+  * `GlobalAveragePooling2D`
+  * `Dense(128)` with ReLU
+  * `Dropout(0.3)`
+  * `Dense` with softmax (for multi-class classification)
+
+📐 **Input Size**: 224 × 224 pixels
+🎛 **Preprocessing**: Image augmentation (flip, rotate, zoom) to improve generalization.
+
+🧪 **Training Setup**:
+
+* **Optimizer**: Adam
+* **Loss Function**: Categorical Crossentropy
+* **Epochs**: 10
+* **Batch Size**: 32
+* **Callbacks**: EarlyStopping & ModelCheckpoint
+
+📊 **Performance**:
+
+* **Test Accuracy**: ✅ \~92%
+* Validated using a separate test set with no data leakage
+
+
+
 ## 🧪 How to Use
 
 1. Upload a plant leaf image.
